@@ -79,6 +79,7 @@ LOCAL_SHARED_LIBRARIES := libhardware
 LOCAL_STATIC_LIBRARIES := liblog libcutils libExynosVideoApi
 
 LOCAL_C_INCLUDES := \
+	$(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include \
 	$(EXYNOS_OMX_INC)/exynos \
 	$(EXYNOS_OMX_TOP)/osal \
 	$(EXYNOS_OMX_COMPONENT)/common \
@@ -88,6 +89,9 @@ LOCAL_C_INCLUDES := \
 	$(TOP)/hardware/samsung_slsi/exynos/include \
 	$(TOP)/hardware/samsung_slsi/$(PLATFORM_DIR)/include \
 	$(TOP)/hardware/samsung_slsi/$(TARGET_SOC)/include
+
+LOCAL_ADDITIONAL_DEPENDENCIES += \
+	$(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
 
 ifeq ($(BOARD_USE_ANDROID), true)
 LOCAL_C_INCLUDES += $(ANDROID_MEDIA_INC)/hardware
