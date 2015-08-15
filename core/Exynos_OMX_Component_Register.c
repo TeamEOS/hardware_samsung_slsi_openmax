@@ -157,16 +157,22 @@ OMX_ERRORTYPE Exynos_OMX_ComponentAPICheck(OMX_COMPONENTTYPE *component)
         (NULL == component->SetConfig)              ||
         (NULL == component->GetExtensionIndex)      ||
         (NULL == component->GetState)               ||
+#if 0
         (NULL == component->ComponentTunnelRequest) ||
+#endif
         (NULL == component->UseBuffer)              ||
         (NULL == component->AllocateBuffer)         ||
         (NULL == component->FreeBuffer)             ||
         (NULL == component->EmptyThisBuffer)        ||
         (NULL == component->FillThisBuffer)         ||
         (NULL == component->SetCallbacks)           ||
+#if 0
         (NULL == component->ComponentDeInit)        ||
         (NULL == component->UseEGLImage)            ||
         (NULL == component->ComponentRoleEnum))
+#else
+        (NULL == component->ComponentDeInit))
+#endif
         ret = OMX_ErrorInvalidComponent;
     else
         ret = OMX_ErrorNone;
